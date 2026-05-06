@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Two Wheels, Two Days — A Cycling Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #faf6ec;
+    --paper-2: #f3ecdc;
+    --paper-3: #ece2cc;
+    --ink: #1f1a12;
+    --ink-2: #3a3326;
+    --ink-3: #6b6147;
+    --rule: #d9cdb0;
+    --forest: #3a4a2f;
+    --forest-deep: #25301d;
+    --moss: #5b6f3f;
+    --tan: #a87b4a;
+    --sand: #c9a876;
+    --rust: #8a4b2a;
+    --sky: #6e8a96;
+    --serif: 'DM Serif Display', 'Times New Roman', serif;
+    --sans: 'Work Sans', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 20% -10%, rgba(168,123,74,0.10), transparent 60%),
+      radial-gradient(900px 500px at 90% 5%, rgba(58,74,47,0.08), transparent 60%),
+      var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.12  0 0 0 0 0.08  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+    opacity:0.55;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:56px 40px 120px;position:relative;z-index:2;}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-0.01em;color:var(--ink);margin:0;}
+  .display{font-family:var(--serif);font-size:clamp(56px,9vw,116px);line-height:0.92;letter-spacing:-0.025em;}
+  .display em{font-style:italic;color:var(--forest);}
+  .eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:0.18em;font-size:11px;color:var(--ink-3);}
+  .lede{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.45;color:var(--ink-2);}
+  .small{font-size:13px;color:var(--ink-3);}
+  .mono{font-family:var(--mono);font-size:12px;letter-spacing:0.04em;}
+  .masthead{border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 0 12px;display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-2);}
+  .masthead .ed{display:flex;gap:18px;align-items:center;}
+  .stamp{border:1px solid var(--ink);padding:3px 8px;border-radius:2px;color:var(--ink);background:rgba(168,123,74,0.10);}
+  .hero{margin-top:36px;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:end;}
+  .hero .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:28px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+  .hero .meta>div{padding:14px 16px 14px 0;border-right:1px dashed var(--rule);}
+  .hero .meta>div:last-child{border-right:none}
+  .hero .meta .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+  .hero .meta .val{font-family:var(--serif);font-size:19px;color:var(--ink);}
+  .hero-img{position:relative;aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;background:var(--paper-2);}
+  .hero-img .cap,.rugen-photo .cap{position:absolute;left:10px;bottom:10px;background:var(--paper);padding:5px 9px;border:1px solid var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;}
+  .hero-img .pin{position:absolute;top:-1px;right:24px;background:var(--rust);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:6px 10px 8px;clip-path:polygon(0 0,100% 0,100% 100%,50% 85%,0 100%);}
+  .sec-head{margin:80px 0 28px;display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:10px;}
+  .sec-head .num{font-family:var(--serif);font-size:56px;line-height:1;color:var(--forest);font-style:italic;}
+  .sec-head h2{font-size:38px;line-height:1;}
+  .sec-head .right{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-3);}
+  .rugen{margin-top:24px;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;}
+  .rugen-intro{background:var(--forest-deep);color:var(--paper);padding:36px 32px;border:1px solid var(--ink);box-shadow:4px 4px 0 var(--ink);position:relative;}
+  .rugen-intro h2{color:var(--paper);font-size:48px;line-height:0.95;margin-bottom:8px;}
+  .rugen-intro h2 em{color:var(--sand);font-style:italic;}
+  .rugen-intro .sub{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,246,236,0.7);margin-bottom:18px;}
+  .rugen-intro .quote{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45;color:rgba(250,246,236,0.9);border-left:2px solid var(--sand);padding-left:14px;}
+  .rugen-intro .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border-top:1px solid rgba(250,246,236,0.18);}
+  .rugen-intro .stats>div{padding:14px 12px 0 0;border-right:1px dashed rgba(250,246,236,0.15);}
+  .rugen-intro .stats>div:last-child{border-right:none;}
+  .rugen-intro .stats .l{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(250,246,236,0.6);margin-bottom:4px;}
+  .rugen-intro .stats .v{font-family:var(--serif);font-size:22px;color:var(--paper);}
+  .rugen-photo{aspect-ratio:4/5;border:1px solid var(--ink);overflow:hidden;box-shadow:4px 4px 0 var(--ink);position:relative;}
+  .days{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .day{background:var(--paper);border:1px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column;transition:transform 0.18s ease,box-shadow 0.18s ease;}
+  .day:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
+  .day .head{padding:18px 22px 8px;display:flex;align-items:baseline;gap:12px;}
+  .day .head h3{font-size:24px;}
+  .day .km{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-2);}
+  .day .lede-day{padding:0 22px 14px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink-2);line-height:1.4;}
+  .day .route{padding:0 22px 22px;}
+  .day .route ol{list-style:none;margin:0;padding:0;}
+  .day .route li{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:9px 0;border-top:1px dashed var(--rule);align-items:start;}
+  .day .route li .step{font-family:var(--mono);font-size:11px;color:var(--ink-3);padding-top:2px;}
+  .day .route li .what{font-size:14px;color:var(--ink-2);line-height:1.45;}
+  .day .route li .what b{color:var(--ink);font-weight:600;}
+  .strip{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .panel{border:1px solid var(--ink);padding:22px;background:var(--paper);display:flex;flex-direction:column;gap:10px;box-shadow:3px 3px 0 var(--ink);}
+  .panel.dark{background:var(--forest-deep);color:var(--paper);}
+  .panel.dark .pname{color:var(--sand);}
+  .panel.dark p,.panel.dark li{color:rgba(250,246,236,0.85);}
+  .panel.tan{background:var(--paper-3);}
+  .pname{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);display:flex;align-items:center;gap:8px;}
+  .panel h3{font-size:22px;line-height:1.1;}
+  .panel ul{margin:0;padding-left:0;list-style:none;}
+  .panel ul li{font-size:13.5px;padding:6px 0;border-top:1px dashed var(--rule);display:flex;gap:8px;align-items:flex-start;}
+  .panel.dark ul li{border-top:1px dashed rgba(250,246,236,0.18);}
+  .panel ul li:first-child{border-top:none;}
+  .panel ul li .check{color:var(--forest);font-family:var(--mono);flex:none;}
+  .panel.dark ul li .check{color:var(--sand);}
+  .colophon{margin-top:80px;border-top:2px solid var(--ink);padding-top:18px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-3);}
+  .colophon .mark{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink);text-transform:none;letter-spacing:0;}
+  .ico{width:18px;height:18px;stroke:var(--ink-2);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+  .ico-forest{stroke:var(--forest);}
+  .scene-wrap{position:absolute;inset:0;overflow:hidden;}
+  .scene{width:100%;height:100%;display:block;}
+  .day-banner{border-bottom:1px solid var(--ink);background:var(--paper-2);padding:16px 22px 22px;position:relative;}
+  .day-banner .ribbon{position:static;display:inline-block;background:var(--banner-color,var(--rust));color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:6px 14px;margin-bottom:18px;}
+  .stops-line{overflow-x:auto;}
+  .stops-line ol{list-style:none;margin:0;padding:0;display:flex;align-items:flex-start;gap:0;position:relative;}
+  .stops-line .stop{flex:1 1 0;min-width:70px;display:flex;flex-direction:column;align-items:center;position:relative;padding-top:16px;}
+  .stops-line .stop::before{content:"";position:absolute;top:6px;left:-50%;width:100%;height:2px;background:var(--stop-color);}
+  .stops-line .stop:first-child::before{display:none;}
+  .stops-line .stop-dot{width:13px;height:13px;border-radius:50%;background:var(--stop-color);border:2.5px solid var(--paper);box-shadow:0 0 0 1.5px var(--stop-color);position:absolute;top:0;}
+  .stops-line .stop-name{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);text-align:center;line-height:1.25;margin-top:4px;}
+  .stops-line .stop:first-child .stop-name,.stops-line .stop:last-child .stop-name{font-weight:700;color:var(--banner-color,var(--ink));}
+  @media (max-width:980px){.hero,.rugen{grid-template-columns:1fr;}.days{grid-template-columns:1fr;}.strip{grid-template-columns:1fr 1fr;}}
+  @media (max-width:620px){.strip{grid-template-columns:1fr;}.wrap{padding:32px 20px 80px;}.hero .meta{grid-template-columns:1fr 1fr;}.hero .meta>div:nth-child(2){border-right:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead"><div class="ed"><span>The Saddlebag Gazette</span><span>·</span><span>Vol. II — Spring '26</span></div><div class="ed"><span class="stamp">Field Edition</span><span>Berlin → Rügen</span></div></div>
+  <header class="hero"><div><div class="eyebrow">A Two-Wheel, Two-Day Field Guide</div><h1 class="display" style="margin-top:18px;">Slow miles,<br/><em>long horizons.</em></h1><p class="lede" style="margin-top:22px; max-width: 520px;">A full weekend on the chalk-cliff island of Rügen — bicycles, beech forests, sea air and the occasional smoked fish.</p><div class="meta"><div><div class="lbl"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>Weekend</div><div class="val">9 – 10 May '26</div></div><div><div class="lbl"><svg class="ico" viewBox="0 0 24 24"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-9h6l-3 6h-7M14 8h-3M14 8l4 9"/></svg>Distance</div><div class="val">~100 km / day</div></div><div><div class="lbl"><svg class="ico" viewBox="0 0 24 24"><path d="M3 20l4-9 5 6 3-5 6 8z"/><circle cx="17" cy="6" r="2"/></svg>Style</div><div class="val">Bikepacking · Wildcamp</div></div><div><div class="lbl">TO</div><div class="val">Rügen</div></div></div></div><div class="hero-img"><span class="pin">N 54° · Rügen</span><div class="scene-wrap"><svg class="scene" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-label="Chalk cliffs of Jasmund"><defs><linearGradient id="hsky" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f0d8a8"/><stop offset="60%" stop-color="#e6c79a"/><stop offset="100%" stop-color="#d4a574"/></linearGradient><linearGradient id="hsea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#9ab4b8"/><stop offset="100%" stop-color="#5e7a82"/></linearGradient><linearGradient id="hcliff" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f5ede0"/><stop offset="100%" stop-color="#d8c8a8"/></linearGradient></defs><rect width="400" height="500" fill="url(#hsky)"/><circle cx="100" cy="160" r="38" fill="#f5d99c" opacity="0.85"/><rect x="0" y="245" width="400" height="180" fill="url(#hsea)"/><path d="M0 280 Q 100 285 200 280 T 400 282" stroke="#b8c8cc" stroke-width="1" fill="none" opacity="0.7"/><path d="M180 245 L 200 230 L 230 245 L 250 220 L 290 240 L 320 215 L 360 235 L 400 220 L 400 500 L 180 500 Z" fill="url(#hcliff)"/><path d="M200 260 L 215 280 L 200 320 L 220 360 L 205 410 L 230 460 L 215 500 L 180 500 L 180 245 Z" fill="#e6d6b8" opacity="0.7"/><path d="M180 245 L 195 232 L 210 240 L 230 230 L 250 240 L 270 225 L 295 238 L 320 222 L 350 235 L 380 222 L 400 230 L 400 250 L 180 250 Z" fill="#25301d"/><path d="M 80 110 q 4 -3 8 0 q 4 -3 8 0" stroke="#3a3326" stroke-width="1.2" fill="none"/></svg></div><span class="cap">Königsstuhl · chalk cliffs</span></div></header>
+  <div class="sec-head"><div class="num">I.</div><h2>The Rügen weekend</h2><div class="right">Stralsund → island loop · 2 days / 1 night</div></div>
+  <div class="rugen"><div class="rugen-intro"><div class="sub">Feature route</div><h2>Chalk, sea<br/>&amp; <em>open road.</em></h2><p class="quote" style="margin-top:18px;">"WNW wind, 15–30 km/h. Saturday: north to Cape Arkona on the diagonal. Sunday: ride east and southeast all day with the wind at your back."</p><div class="stats"><div><div class="l">Total</div><div class="v">~200 km</div></div><div><div class="l">Wind</div><div class="v">WNW · 15–30 km/h</div></div><div><div class="l">Sleep</div><div class="v">Camp · Bergen</div></div></div></div><div class="rugen-photo"><div class="scene-wrap"><svg class="scene" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-label="Cape Arkona lighthouses"><defs><linearGradient id="rsky" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#3a4858"/><stop offset="50%" stop-color="#7a8a98"/><stop offset="100%" stop-color="#c8b894"/></linearGradient><linearGradient id="rsea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#6a8088"/><stop offset="100%" stop-color="#3a4a52"/></linearGradient></defs><rect width="400" height="500" fill="url(#rsky)"/><circle cx="100" cy="120" r="28" fill="#f4e6c0" opacity="0.85"/><rect x="0" y="280" width="400" height="160" fill="url(#rsea)"/><path d="M0 280 Q 80 270 160 282 Q 240 274 320 280 Q 380 274 400 280 L 400 290 L 0 290 Z" fill="#25301d"/><rect x="155" y="190" width="40" height="80" fill="#efe3c4" stroke="#3a3326" stroke-width="1"/><rect x="240" y="160" width="22" height="110" fill="#efe3c4" stroke="#3a3326" stroke-width="1"/><path d="M251 138 L 320 100 L 320 130 Z" fill="#f4e6a0" opacity="0.4"/><path d="M0 440 L 50 420 L 100 430 L 160 415 L 220 425 L 280 410 L 340 422 L 400 412 L 400 500 L 0 500 Z" fill="#25301d"/></svg></div><span class="cap">Cape Arkona · light keepers</span></div></div>
+  <div class="days"><article class="day"><div class="day-banner" style="--banner-color:#8a4b2a"><span class="ribbon">Day 01 · Sat · north to Arkona</span><div class="stops-line" style="--stop-color:#8a4b2a"><ol><li class="stop"><span class="stop-dot"></span><span class="stop-name">Berlin</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Stralsund</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Sassnitz</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Lohme</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Glowe</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Juliusruh</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Cape Arkona</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Wittow Ferry</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Trent</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Bergen</span></li></ol></div></div><div class="head"><h3>The Cape Arkona run</h3><div class="km">~100 km · side &amp; tailwind</div></div><div class="lede-day">Train straight to Sassnitz, then a long northbound day to the cape — Jasmund cliffs, the Schaabe sandbar, Wittow heath, and the lighthouses at Arkona. Ferry back, finish in Bergen.</div><div class="route"><ol><li><span class="step">07:30</span><div class="what"><b>Train Berlin → Stralsund → Sassnitz</b> (RE9 + RB), bikes on board.</div></li><li><span class="step">11:30</span><div class="what">Sassnitz → <b>Lohme → Glowe</b> along the Jasmund cliff road · WNW wind sideways.</div></li><li><span class="step">13:30</span><div class="what">Cross the <b>Schaabe sandbar</b> to <b>Juliusruh</b> · sea on both sides, easy spinning.</div></li><li><span class="step">15:00</span><div class="what"><b>Cape Arkona</b>: twin lighthouses, Slavic Jaromarsburg earthworks, lunch at the cape.</div></li><li><span class="step">17:00</span><div class="what">South via <b>Wiek → Wittow Ferry</b> → <b>Trent</b> · tailwind back across the Bodden.</div></li><li><span class="step">19:30</span><div class="what">Camp near <b>Bergen</b> · cold beer, hot dinner.</div></li></ol></div></article><article class="day"><div class="day-banner" style="--banner-color:#3a4a2f"><span class="ribbon">Day 02 · Sun · the long tailwind home</span><div class="stops-line" style="--stop-color:#3a4a2f"><ol><li class="stop"><span class="stop-dot"></span><span class="stop-name">Bergen</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Putbus</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Lauterbach</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Sellin</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Baabe</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Göhren</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Thiessow</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Binz</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Prora</span></li><li class="stop"><span class="stop-dot"></span><span class="stop-name">Sassnitz</span></li></ol></div></div><div class="head"><h3>Mönchgut &amp; the long tailwind</h3><div class="km">~100 km · tailwind east &amp; SE</div></div><div class="lede-day">From Bergen straight into the wind's favour: south-east through Putbus, the pier towns, Mönchgut's tip at Thiessow, then north up the Schmale Heide back to the Sassnitz train.</div><div class="route"><ol><li><span class="step">07:30</span><div class="what">Coffee, pack camp in <b>Bergen</b>.</div></li><li><span class="step">08:30</span><div class="what">South to <b>Putbus</b> (the White Town) and <b>Lauterbach</b>'s harbour.</div></li><li><span class="step">10:30</span><div class="what">East along the bay to <b>Sellin</b>'s white pier · second breakfast on the boardwalk.</div></li><li><span class="step">12:30</span><div class="what"><b>Baabe → Göhren → Thiessow</b>: loop the Mönchgut tip · fishing villages, dunes, swim.</div></li><li><span class="step">15:30</span><div class="what">North along the <b>Schmale Heide</b> sandbar through <b>Binz → Prora → Mukran</b>.</div></li><li><span class="step">17:30</span><div class="what">Roll into <b>Sassnitz</b> · train home via Stralsund · Rotspon at Berlin Hbf.</div></li></ol></div></article></div>
+  <div class="sec-head"><div class="num">II.</div><h2>The fine print</h2><div class="right">Pack · sleep · weather · eat</div></div><div class="strip"><div class="panel"><div class="pname"><svg class="ico ico-forest" viewBox="0 0 24 24"><path d="M6 8V6a3 3 0 1 1 6 0v2M4 8h16l-1 12H5z"/></svg>Packing checklist</div><h3>The bag, sorted.</h3><ul><li><span class="check">[ ]</span>Tent + sleeping bag (3-season)</li><li><span class="check">[ ]</span>Stove · pot · spork · coffee kit</li><li><span class="check">[ ]</span>Rain shell + warm mid-layer</li><li><span class="check">[ ]</span>Swimsuit + microfibre towel</li><li><span class="check">[ ]</span>Powerbank · lights · spare tube</li><li><span class="check">[ ]</span>Map, snack, sense of humour</li></ul></div><div class="panel dark"><div class="pname"><svg class="ico" style="stroke: var(--sand)" viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h17a3 3 0 1 1-3 3M3 16h13"/></svg>Wind &amp; weather check</div><h3 style="color: var(--paper);">Let the wind decide.</h3><p style="font-size:14px;color:rgba(250,246,236,0.85);">On Rügen, check wind direction the night before — start <b>north</b> (Sassnitz/Lohme) on a southerly, <b>south</b> (Sellin/Baabe) on a northerly. The whole island works in either direction.</p><p style="font-size:14px;color:rgba(250,246,236,0.85);">In Brandenburg, the dark-sky run wants a clear, dry forecast — check <span class="mono" style="color:var(--sand)">wetter.de</span>.</p></div><div class="panel tan"><div class="pname"><svg class="ico ico-forest" viewBox="0 0 24 24"><path d="M3 20l9-15 9 15z"/><path d="M9 20v-3M15 20v-3"/></svg>Wildcamping rules</div><h3>Sleep light, leave nothing.</h3><ul><li><span class="check">·</span><b style="font-weight:400">Rügen:</b><br/>only at official campsites — many along the coast.</li><li><span class="check">·</span>Always: pack out everything, including orange peels.</li></ul></div><div class="panel"><div class="pname"><svg class="ico ico-forest" viewBox="0 0 24 24"><path d="M5 21V11M5 11l-2-2 4-4 4 4-2 2M9 21V13M14 5h6v6h-6z M17 11v10"/></svg>Food &amp; camp ideas</div><h3>Eat well, sleep early.</h3><ul><li><span class="check">→</span>Rügen: smoked fish at <b>Lohme</b>, sanddorn liqueur.</li><li><span class="check">→</span>Sellin pier cafés for second breakfast.</li><li><span class="check">→</span>Camp dinner: lentil-tomato one-pot + bread + wine.</li><li><span class="check">→</span>Breakfast: oats, dried fruit, strong coffee, view.</li></ul></div></div>
+  <div class="colophon"><span>Compiled by hand · 2026</span><span class="mark">"Slow miles, long horizons."</span><span>Two wheels · One weekend</span></div>
+</div>
+</body>
+</html>
